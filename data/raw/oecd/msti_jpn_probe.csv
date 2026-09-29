@@ -1,0 +1,1 @@
+Unknown query parameter  'dimension_at_observation' allowed parameters [startPeriod, endPeriod, updatedAfter, firstNObservations, lastNObservations, dimensionAtObservation, detail, includeHistory, asOf]

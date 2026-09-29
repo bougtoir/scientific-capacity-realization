@@ -1,0 +1,36 @@
+variable,file,unit,construction,source,window_or_coverage
+y1,panel_country_field_year.csv,count works,All OpenAlex works (any type) per country x field x year,OpenAlex works group_by=primary_topic.field.id,2000-2025
+y2,panel_country_field_year.csv,count articles,type:article subset of y1,OpenAlex,2000-2025
+y3,panel_country_field_year.csv,count articles,y2 with countries_distinct_count>1 (international collaboration),OpenAlex,2000-2025
+y4,panel_country_field_year.csv,count articles,y2 with language:en,OpenAlex,2000-2025
+y5,panel_country_field_year.csv,count articles,y2 with fwci>1 (field-normalized above average),OpenAlex,2000-2021 (maturity cutoff)
+y6_top10,panel_country_field_year.csv,count articles,y2 in top-10% citation-normalized percentile,OpenAlex,2000-2021
+y7_top1,panel_country_field_year.csv,count articles,y2 in top-1% citation-normalized percentile,OpenAlex,2000-2021
+oa_share_gold,panel_country_year.csv,share of y1,group_by open_access.oa_status=gold share of all works,OpenAlex,2000-2025
+oa_share_hybrid,panel_country_year.csv,share of y1,oa_status=hybrid share,OpenAlex,2000-2025
+oa_share_bronze,panel_country_year.csv,share of y1,oa_status=bronze share,OpenAlex,2000-2025
+oa_share_green,panel_country_year.csv,share of y1,oa_status=green share,OpenAlex,2000-2025
+oa_share_closed,panel_country_year.csv,share of y1,oa_status=closed share,OpenAlex,2000-2025
+y2_oa,panel_country_field_year.csv,count articles,y2 in OA venues (open_access.is_oa),OpenAlex,2000-2025
+H_usdppp,resources_country_year.csv,constant PPP USD (real),Higher-education R&D expenditure (HERD) USD_PPP price base V,OECD MSTI (DSD_MSTI),1995-2024
+G_usdppp,resources_country_year.csv,constant PPP USD (real),GERD USD_PPP real,OECD MSTI,1995-2024
+C_usdppp,resources_country_year.csv,constant PPP USD (real),GBARD (government budget appropriations for R&D) USD_PPP real,OECD MSTI,1995-2024
+C_GUF_usdppp,resources_country_year.csv,constant PPP USD (real),General University Funds component of GBARD USD_PPP real,OECD MSTI,1995-2024
+GV_usdppp,resources_country_year.csv,constant PPP USD (real),GOVERD USD_PPP real,OECD MSTI,1995-2024
+H_pct_gdp,resources_country_year.csv,% of GDP,HERD share of GDP,OECD MSTI,1995-2024
+G_pct_gdp,resources_country_year.csv,% of GDP,GERD share of GDP,OECD MSTI,1995-2024
+T_RS_fte,resources_country_year.csv,FTE,Total researchers (FTE),OECD MSTI,1995-2024
+H_RS_fte,resources_country_year.csv,FTE,Higher-education researchers (FTE),OECD MSTI,1995-2024
+gb_xpd_rsdv_gd_zs,resources_country_year.csv,% of GDP,GERD share of GDP (World Bank series),World Bank WDI,1995-2025
+sp_pop_scie_rd_p6,resources_country_year.csv,per million pop,Researchers per million people (WB),World Bank WDI,1995-2025
+ny_gdp_mktp_pp_kd,resources_country_year.csv,constant intl USD,Real GDP PPP,World Bank WDI,1995-2025
+sp_pop_totl,resources_country_year.csv,persons,Population,World Bank WDI,1995-2025
+logR / logR2,model frame,log USD PPP,log(HERD_{t-2}) with GERD fallback (primary resource measure),derived,inferential 2004-2023
+dlogR_k,model frame,log-diff,Delta log R at lag k (k=0..8),derived,2004-2023
+ri_z,FIELD_RESOURCE_INTENSITY.csv,z-score,PCA-1 of sampled field attributes (mean authors, inst., intl share, award share, funder share, EN share, DOI share, OA share) standardized,OpenAlex random samples n=3000/field seed-stratified,2004-2023 pooled
+ri_ew_z,FIELD_RESOURCE_INTENSITY.csv,z-score,Equal-weight alternative index (robustness D2),derived,2004-2023
+persist_share,topic_persistence.csv,share,Share of subfields active in 2004-2008 still active in later window,OpenAlex group_by=primary_topic.subfield.id,2004-2008 vs 2014-2018 / 2019-2023
+share_moved_lo,mobility_summary.csv,share,Share of post-window output in low-intensity tercile fields among authors whose pre-window dominant field was high-tercile,OpenAlex author samples (n<=1500/country),pre 2008-2010 -> post 2013-2016
+d_ri,mobility_summary.csv,z-score diff,Mean change in field resource-intensity composition of authors' portfolios,derived,same windows
+cf,model frame,id,country x field fixed effect,derived,all
+fy,model frame,id,field x year fixed effect,derived,all
