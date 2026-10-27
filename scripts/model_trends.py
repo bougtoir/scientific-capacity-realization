@@ -80,6 +80,16 @@ w["field"] = w.field.astype(str)
 m4 = feols("dly2 ~ dlogR | field", data=w, vcov={"CRV1": "country"})
 rec("C4 long-diff 04-08 to 14-18", m4, "dlogR")
 
+# C2i as C2 plus the field resource-intensity interaction
+fri = pd.read_csv("data/processed/field_resource_intensity.csv")
+fmap = dict(zip(fri.field.astype(str), fri.ri_z))
+df["ri_z"] = df.field.astype(str).map(fmap)
+df["logR_x_ri"] = df.logR * df.ri_z
+m2i = fepois("y2 ~ logR + logR_x_ri + C(country):yr | cf + fy",
+             data=df, vcov={"CRV1": "country"})
+rec("C2i interaction +country trends", m2i, "logR_x_ri")
+rec("C2i interaction +country trends", m2i, "logR")
+
 pd.DataFrame(rows).to_csv(f"{OUT}/trend_models.csv", index=False)
 print(pd.DataFrame(rows).to_string())
 print("C4 cells:", len(w))
