@@ -1,0 +1,21 @@
+file,column,type,description
+author_period_panel.csv.gz,author_key,string,pseudonymized author key (per-country sequential; non-reversible)
+author_period_panel.csv.gz,country,string,2-letter focus-country code (de fr gb jp kr us)
+author_period_panel.csv.gz,t,int,portfolio year (2005-2022)
+author_period_panel.csv.gz,n,int,indexed works in the year
+author_period_panel.csv.gz,ri,float,portfolio mean field resource-intensity (z)
+author_period_panel.csv.gz,intl,float,international-collaboration share of works
+author_period_panel.csv.gz,n_inst,float,mean distinct institutions per work
+author_period_panel.csv.gz,oa,float,open-access share
+author_period_panel.csv.gz,corr,float,corresponding-authorship share
+author_period_panel.csv.gz,team,float,mean authors per work
+author_period_panel.csv.gz,gold,float,gold OA share
+author_period_panel.csv.gz,hybrid,float,hybrid OA share
+author_period_panel.csv.gz,dom_field,int,dominant OpenAlex field id (modal field of the year's works)
+author_period_panel.csv.gz,state,string,portfolio state S1-S5 (baseline-fixed RI terciles + collab/inactivity modes)
+author_period_panel.csv.gz,s1,string,next-year state (panel only: same as state; transitions file carries realized s1)
+author_period_panel.csv.gz,t1,float,next-year timestamp
+transition_panel.csv.gz,(all columns),same,identical schema; restricted to consecutive t->t+1 realized transitions
+cohort_flow.csv,stage,string,cohort funnel stage
+cohort_flow.csv,n,int,count at stage
+cohort_flow.csv,note,string,stage description

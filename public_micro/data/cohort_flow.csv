@@ -1,0 +1,10 @@
+stage,n,note
+sampled_author_ids,15000,"2,500 per country x 6 countries, seed 11, stratified over 26 fields on 2008-2011 works"
+authors_returning_works,14984,16 sampled IDs returned no works
+authorship_records,1792399,2004-2023 histories
+unique_works,1478257,deduplicated by OpenAlex work ID
+eligible_authors,12361,">=3 indexed works and >=2 active baseline years; jp 2041 kr 2036 de 2009 gb 2107 us 2027 fr 2141"
+excluded_at_eligibility,2623,14984 minus 12361
+portfolio_windows,222498,rolling three-year windows 2005-2022
+state_transitions,210137,consecutive t to t+1
+within_author_observations,196937,author FE model rows
